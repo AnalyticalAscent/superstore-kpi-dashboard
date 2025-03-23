@@ -1,0 +1,21 @@
+# Node / React
+node_modules/
+build/
+.env
+
+# Python
+*.pyc
+__pycache__/
+*.ipynb_checkpoints/
+venv/
+env/
+.python-version
+
+# SQL / Data
+*.bak
+*.mdf
+*.ldf
+public-data/*.json
+
+# VS Code
+.vscode/
