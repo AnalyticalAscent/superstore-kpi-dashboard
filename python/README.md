@@ -4,11 +4,11 @@ This folder contains Python scripts used for **loading, cleaning, and exporting*
 
 ---
 
-## 📄 Script: `sql-uploader.py`
+## 📄 Script: `load_superstore_sales.py`
 
 ### 🔧 Purpose
 
-`sql-uploader.py` reads the **"Sample - Superstore.csv"** file and inserts its rows into the **`sales`** table inside the local **SQL Server** database `superstore_db`.
+`load_superstore_sales.py` reads the **"Sample - Superstore.csv"** file and inserts its rows into the **`sales`** table inside the local **SQL Server** database `superstore_db`.
 
 This is the first step in the ETL pipeline:
 
@@ -18,7 +18,7 @@ This is the first step in the ETL pipeline:
 
 ---
 
-## ⚙️ Usage
+### ⚙️ Usage
 
 ```bash
 # Activate your virtual environment (if using one)
@@ -30,7 +30,7 @@ python load_superstore_sales.py
 
 ---
 
-## 📥 Input
+### 📥 Input
 
 CSV file located at:
 
@@ -39,6 +39,41 @@ CSV file located at:
 ```
 
 Make sure the file is present and formatted correctly (Kaggle-exported original).
+
+---
+
+## 📄 Script: `create_kpi_json.py`
+
+### 🔧 Purpose
+
+`create_kpi_json.py` queries **v_kpi_dashboard_data** and exports the contents to `..\data\` in json format.
+
+This is the first step in the ETL pipeline:
+
+- ✅ Extract from SQL view
+- ✅ Export as json format
+
+### ⚙️ Usage
+
+```bash
+# Activate your virtual environment (if using one)
+conda activate data-science  # or source ./venv/Scripts/activate
+
+# Run the script
+python create_kpi_json.py
+```
+
+---
+
+### 📥 Input
+
+SQL view located on local SQL server:
+
+```
+v_kpi_superstore_data
+```
+
+Make sure SQL view v_kpi_dashboard_data has been created.
 
 ---
 
@@ -85,7 +120,8 @@ conn = pyodbc.connect(
 
 - `../sql/` — DDL, view creation, and SQL logic
 - `../react/` — Frontend dashboard using exported JSON
-- `../public-data/` — Holds raw CSV and output JSON
+- `../data/` — Holds raw CSV
+- `../react/public/data/` — Holds output JSON
 
 ---
 

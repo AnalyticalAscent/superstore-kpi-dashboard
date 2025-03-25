@@ -5,7 +5,7 @@ import pandas as pd
 import pyodbc
 
 # Load the CSV
-df = pd.read_csv("./public/data/Sample - Superstore.csv", encoding="latin1")
+df = pd.read_csv("./data/Sample - Superstore.csv", encoding="latin1")
 
 # Connect to SQL Server
 conn = pyodbc.connect(

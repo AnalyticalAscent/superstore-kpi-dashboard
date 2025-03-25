@@ -18,7 +18,7 @@ This script performs initial **data cleansing and normalization** on the raw `sa
 - ✅ Ensure numeric fields are casted consistently
 - ✅ Prepare table for KPI aggregations and dashboard use
 
-### 📋 Example Tasks:
+### 📋 Initial Tasks:
 
 ```sql
 DELETE FROM sales WHERE Customer_ID IS NULL;
@@ -43,11 +43,36 @@ WHERE ISNUMERIC(Postal_Code) = 1;
 
 ---
 
+## 🧼 Script: `clean-superstore-sales.sql`
+
+### 🔧 Purpose
+
+This script performs initial **data cleansing and normalization** on the raw `sales` table loaded from the Superstore dataset.
+
+### 🛠️ Operations Performed:
+
+- ✅ Create a sql view containing aggregations for kpis
+
+### 📋 Initial Tasks:
+
+```sql
+CREATE VIEW v_kpi_dashboard_data AS
+    SELECT
+        FORMAT(Order_Date, 'yyyy-MM') AS Month,
+        SUM(Sales) AS Total_Sales,
+        AVG(Discount) AS Avg_Discount,
+        SUM(Profit) / NULLIF(SUM(Sales), 0) AS Profit_Ratio,
+        COUNT(DISTINCT Customer_ID) AS Unique_Customers
+    FROM sales
+    GROUP BY FORMAT(Order_Date, 'yyyy-MM');
+```
+
+---
+
 ## 📂 Other Future SQL Scripts
 
 | Filename                 | Purpose                                        |
 | ------------------------ | ---------------------------------------------- |
-| `create-kpi-views.sql`   | Define views for KPIs (MoM, YoY, trends)       |
 | `index-optimization.sql` | Add indexes for query performance              |
 | `export-snapshot.sql`    | Materialize cleaned KPI data into a flat table |
 | `setup-db.sql`           | DDL for creating tables and constraints        |

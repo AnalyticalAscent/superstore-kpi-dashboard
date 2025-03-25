@@ -1,0 +1,54 @@
+/* Main dashboard layout grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive card layout */
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #f4f6f9;
+}
+
+/* Card container */
+.kpi-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.2s ease;
+  text-align: left;
+}
+
+/* Card hover animation */
+.kpi-card:hover {
+  transform: translateY(-5px);
+}
+
+/* KPI title */
+.kpi-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Main numeric value */
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+/* % change area */
+.kpi-change {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Green for uptrend */
+.kpi-change.positive {
+  color: #28a745;
+}
+
+/* Red for downtrend */
+.kpi-change.negative {
+  color: #dc3545;
+}
