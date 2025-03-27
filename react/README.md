@@ -1,156 +1,125 @@
-# 📊 Superstore KPI Dashboard
+# 📦 React Frontend
 
-An interactive, full-stack React dashboard that visualizes monthly performance metrics (KPIs) from the popular Superstore sales dataset — built for demonstration and learning purposes, not intended as a fully polished visual design
+This folder contains the **React-based frontend** for the Superstore KPI Dashboard. It renders interactive KPI cards, mini visualizations, and routes for navigating between views. The app is powered by data prepared in the backend and delivered as static `.json` files.
 
----
-
-## 🚀 Features
-
-- 🔄 Flip KPI cards to reveal metric descriptions
-- 📈 Mini time-series charts embedded in each KPI card
-- 📊 Click cards to view full bar charts of the selected KPI
-- 🧭 Navigation bar to toggle between views (KPI, info, chart)
-- ⚡ Fast and responsive UI powered by React
-- 🧪 Clean backend SQL transformations with a Python data loader
-- 🗂️ Organized project structure for full-stack devs
+⚠️ _Note: This frontend is intended for demonstration purposes and is not fully optimized for production-grade UX/UI design._
 
 ---
 
 ## 🗂️ Folder Structure
 
 ```
-superstore-kpi-dashboard/
-├── public/
+react/
+├── public/                     # Static assets and data files
 │   └── data/
-│       ├── dashboard.json         # Summary metrics
-│       └── monthlydata.json       # Monthly time series data
-├── react/                         # Frontend React app
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Dashboard.js
-│   │   │   ├── KpiCard.js
-│   │   │   ├── MiniKpiChart.js
-│   │   │   └── ...
-│   │   ├── App.js
-│   │   ├── index.js
+│       ├── dashboard.json      # Summary KPIs
+│       └── monthlydata.json    # Time series data per KPI
+├── src/
+│   ├── components/             # Modular UI components
+│   │   ├── Dashboard.js        # Main dashboard container
+│   │   ├── KpiCard.js          # Flippable KPI cards
+│   │   ├── MiniKpiChart.js     # Line/bar chart component
 │   │   └── ...
-│   ├── .eslintrc.json
-│   ├── .prettierrc
-│   └── package.json
-├── sql/
-│   ├── create_superstore_db.sql
-│   ├── clean-superstore-sales.sql
-│   └── kpi_dashboard_view.sql
-├── python/
-│   ├── sql-uploader.py
-│   └── README.md
-├── .gitignore
-├── README.md
-└── LICENSE
+│   ├── App.js                  # Top-level routes and layout
+│   ├── index.js                # React app entry point
+│   └── index.css               # Global styles
+├── .eslintrc.json              # ESLint config
+├── .prettierrc                 # Prettier config
+├── package.json                # Project metadata and dependencies
+└── README.md                   # You're here
 ```
 
 ---
 
-## ⚙️ Setup Guide
+## ⚙️ Getting Started
 
-### 🐍 1. Load & Prep Data (Python + SQL Server)
-
-1. Install dependencies:
-
-   ```bash
-   pip install pandas pyodbc
-   ```
-
-2. Run SQL setup:
-
-   - Open `sql/create_superstore_db.sql` in SSMS
-   - Execute to create DB + `sales` table
-
-3. Run the data uploader:
-
-   ```bash
-   python python/sql-uploader.py
-   ```
-
-4. Clean and transform with:
-
-   - `clean-superstore-sales.sql`
-   - `kpi_dashboard_view.sql`
-
-5. Export result sets to:
-
-```
-public/data/dashboard.json       # Summary KPIs
-public/data/monthlydata.json     # Monthly metrics
-```
-
----
-
-### ⚛️ 2. React Frontend
+1. Navigate to the `react/` folder:
 
 ```bash
 cd react
+```
+
+2. Install dependencies:
+
+```bash
 npm install
+```
+
+3. Start the development server:
+
+```bash
 npm start
 ```
 
-Runs locally at: [http://localhost:3000](http://localhost:3000)
+> App runs at: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🧭 How to Use
+## 📁 Data Files
 
-| Button        | Description                           |
-| ------------- | ------------------------------------- |
-| 🔹 KPI View   | Default: show KPI value + % change    |
-| ℹ️ Info View  | Flip cards: show KPI definitions      |
-| 📈 Chart View | Flip cards: mini line chart per KPI   |
-| 📊 Click Card | Full bar chart of the selected metric |
+Place your JSON data files in:
 
----
+```
+public/data/
+```
 
-## 📊 KPI Metrics
+Required files:
 
-- **Total Sales**: Monthly sum of all sales
-- **Profit Ratio**: `SUM(Profit) / SUM(Sales)`
-- **Avg Discount**: Average discount per transaction
-- **Unique Customers**: Number of distinct customers monthly
+- `dashboard.json` — Contains summary metrics for front-facing KPI cards.
+- `monthlydata.json` — Contains time series data for mini and bar charts.
 
 ---
 
-## 🧠 Tech Stack
+## 🔄 Available Views
 
-| Layer    | Stack                     |
-| -------- | ------------------------- |
-| Frontend | React, Chart.js           |
-| Backend  | SQL Server, T-SQL         |
-| Data ETL | Python (pandas, pyodbc)   |
-| Tooling  | ESLint, Prettier, VS Code |
+| Mode    | Trigger             | Description                         |
+| ------- | ------------------- | ----------------------------------- |
+| `front` | Default             | Shows KPI name, value, and % change |
+| `back`  | Info button         | Shows description of the metric     |
+| `chart` | "Mini Chart" toggle | All cards show line chart sparkline |
+| `bar`   | Click any card      | That card shows a full bar chart    |
 
 ---
 
-## 🧹 Linting & Formatting
+## 🧹 Code Style
 
-In `/react/`:
+Run ESLint and Prettier using:
 
 ```bash
 npx eslint src/
 npx prettier --write "src/**/*.{js,jsx,json,css,md}"
 ```
 
-> Make sure `.eslintrc.json` and `.prettierrc` are defined in your `/react/` directory.
+---
+
+## ✅ Dependencies
+
+- React 18+
+- react-chartjs-2
+- chart.js
+- react-router-dom
+- ESLint + Prettier
 
 ---
 
-## 📌 Future Enhancement Ideas
+## 🧠 Notes
 
-- Export charts as images or CSV
-- Deploy to Netlify or Vercel
-- Add user authentication (e.g. for multi-user KPIs)
-- Role-based dashboards for functional departments
+- React Router v6 is used (`<Routes>` and `element={<Component />}` syntax)
+- Chart type is controlled via props (`chartType="line"` or `"bar"`)
+- Global card view state is managed via `cardView` in `Dashboard.js`
+- Per-card override (bar chart) is managed via `activeChartIndex`
+
+---
+
+## 🛠️ Future Ideas
+
+- Add dark mode toggle
+- Add filtering or KPI drilldowns
+- Export charts as image/CSV
+- Mobile-responsive card layout
 
 ---
 
 ## 📄 License
 
-MIT License. See [LICENSE](./LICENSE) for details.
+MIT — Free to use, modify, and learn from.
