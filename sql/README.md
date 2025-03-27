@@ -47,13 +47,11 @@ WHERE ISNUMERIC(Postal_Code) = 1;
 
 ### 🔧 Purpose
 
-This script performs initial **data cleansing and normalization** on the raw `sales` table loaded from the Superstore dataset.
+Creates a view with time-series data for KPIs for building out graphs.
 
 ### 🛠️ Operations Performed:
 
 - ✅ Create a sql view containing aggregations for kpis
-
-### 📋 Initial Tasks:
 
 ```sql
 CREATE VIEW v_kpi_dashboard_data AS
@@ -69,13 +67,85 @@ CREATE VIEW v_kpi_dashboard_data AS
 
 ---
 
-## 📂 Other Future SQL Scripts
+## 🧼 Script: `create-view-kpi-card-data`
 
-| Filename                 | Purpose                                        |
-| ------------------------ | ---------------------------------------------- |
-| `index-optimization.sql` | Add indexes for query performance              |
-| `export-snapshot.sql`    | Materialize cleaned KPI data into a flat table |
-| `setup-db.sql`           | DDL for creating tables and constraints        |
+Creates a view with summary data for KPI card dashboard.
+
+### 🛠️ Operations Performed:
+
+- ✅ Create a sql view containing summary for KPI cards
+
+```sql
+CREATE VIEW v_kpi_dashboard_cards AS
+WITH kpi_months AS (
+    SELECT
+        FORMAT(Order_Date, 'yyyy-MM') AS Month,
+        SUM(Sales) AS Total_Sales,
+        AVG(Discount) AS Avg_Discount,
+        SUM(Profit) / NULLIF(SUM(Sales), 0) AS Profit_Ratio,
+        COUNT(DISTINCT Customer_ID) AS Unique_Customers
+    FROM sales
+    GROUP BY FORMAT(Order_Date, 'yyyy-MM')
+),
+ranked AS (
+    SELECT *,
+           ROW_NUMBER() OVER (ORDER BY Month DESC) AS rn
+    FROM kpi_months
+),
+curr_prev AS (
+    SELECT
+        curr.Month AS CurrentMonth,
+        prev.Month AS PrevMonth,
+
+        curr.Total_Sales AS Sales_Current,
+        prev.Total_Sales AS Sales_Previous,
+
+        curr.Avg_Discount AS Discount_Current,
+        prev.Avg_Discount AS Discount_Previous,
+
+        curr.Profit_Ratio AS Profit_Current,
+        prev.Profit_Ratio AS Profit_Previous,
+
+        curr.Unique_Customers AS Customers_Current,
+        prev.Unique_Customers AS Customers_Previous
+    FROM ranked curr
+    JOIN ranked prev ON curr.rn = 1 AND prev.rn = 2
+)
+SELECT
+    'Total Sales' AS title,
+    Sales_Current AS value,
+    ROUND(((Sales_Current - Sales_Previous) / NULLIF(Sales_Previous, 0)) * 100, 2) AS percentage,
+    CASE WHEN Sales_Current - Sales_Previous >= 0 THEN 1 ELSE 0 END AS isPositive
+FROM curr_prev
+
+UNION ALL
+
+SELECT
+    'Avg Discount',
+    Discount_Current,
+    ROUND(((Discount_Current - Discount_Previous) / NULLIF(Discount_Previous, 0)) * 100, 2),
+    CASE WHEN Discount_Current - Discount_Previous >= 0 THEN 1 ELSE 0 END
+FROM curr_prev
+
+UNION ALL
+
+SELECT
+    'Profit Ratio',
+    Profit_Current,
+    ROUND(((Profit_Current - Profit_Previous) / NULLIF(Profit_Previous, 0)) * 100, 2),
+    CASE WHEN Profit_Current - Profit_Previous >= 0 THEN 1 ELSE 0 END
+FROM curr_prev
+
+UNION ALL
+
+SELECT
+    'Unique Customers',
+    Customers_Current,
+    ROUND(((Customers_Current - Customers_Previous) / NULLIF(Customers_Previous, 0)) * 100, 2),
+    CASE WHEN Customers_Current - Customers_Previous >= 0 THEN 1 ELSE 0 END
+FROM curr_prev;
+
+```
 
 ---
 

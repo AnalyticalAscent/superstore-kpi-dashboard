@@ -1,1 +1,33 @@
-[{"Month":"2014-01","Total_Sales":14236.895,"Avg_Discount":0.1265822785,"Profit_Ratio":0.17210148,"Unique_Customers":32},{"Month":"2014-02","Total_Sales":4519.892,"Avg_Discount":0.1760869565,"Profit_Ratio":0.1907807532,"Unique_Customers":27},{"Month":"2014-03","Total_Sales":55691.009,"Avg_Discount":0.1675159236,"Profit_Ratio":0.0089553037,"Unique_Customers":69},{"Month":"2014-04","Total_Sales":28295.345,"Avg_Discount":0.11,"Profit_Ratio":0.1233006772,"Unique_Customers":64},{"Month":"2014-05","Total_Sales":23648.287,"Avg_Discount":0.1553278689,"Profit_Ratio":0.1158100627,"Unique_Customers":67},{"Month":"2014-06","Total_Sales":34595.1276,"Avg_Discount":0.172,"Profit_Ratio":0.1438504421,"Unique_Customers":63},{"Month":"2014-07","Total_Sales":33946.393,"Avg_Discount":0.1716783217,"Profit_Ratio":-0.0247885718,"Unique_Customers":65},{"Month":"2014-08","Total_Sales":27909.4685,"Avg_Discount":0.1310457516,"Profit_Ratio":0.1905484155,"Unique_Customers":70},{"Month":"2014-09","Total_Sales":81777.3508,"Avg_Discount":0.1599626866,"Profit_Ratio":0.1018387037,"Unique_Customers":118},{"Month":"2014-10","Total_Sales":31453.393,"Avg_Discount":0.1600628931,"Profit_Ratio":0.1096306939,"Unique_Customers":75},{"Month":"2014-11","Total_Sales":78628.7167,"Avg_Discount":0.151163522,"Profit_Ratio":0.1181772677,"Unique_Customers":139},{"Month":"2014-12","Total_Sales":69545.6205,"Avg_Discount":0.1908273381,"Profit_Ratio":0.1291752067,"Unique_Customers":134},{"Month":"2015-01","Total_Sales":18174.0756,"Avg_Discount":0.1779310345,"Profit_Ratio":-0.1805322632,"Unique_Customers":28},{"Month":"2015-02","Total_Sales":11951.411,"Avg_Discount":0.1296875,"Profit_Ratio":0.2354408864,"Unique_Customers":36},{"Month":"2015-03","Total_Sales":38726.252,"Avg_Discount":0.1401449275,"Profit_Ratio":0.2513049236,"Unique_Customers":77},{"Month":"2015-04","Total_Sales":34195.2085,"Avg_Discount":0.1759375,"Profit_Ratio":0.1224585661,"Unique_Customers":69},{"Month":"2015-05","Total_Sales":30131.6865,"Avg_Discount":0.1660958904,"Profit_Ratio":0.1549156235,"Unique_Customers":69},{"Month":"2015-06","Total_Sales":24797.292,"Avg_Discount":0.1724637681,"Profit_Ratio":0.1345129621,"Unique_Customers":68},{"Month":"2015-07","Total_Sales":28765.325,"Avg_Discount":0.1703571429,"Profit_Ratio":0.1143268258,"Unique_Customers":64},{"Month":"2015-08","Total_Sales":36898.3322,"Avg_Discount":0.1564150943,"Profit_Ratio":0.1451504196,"Unique_Customers":64},{"Month":"2015-09","Total_Sales":64595.918,"Avg_Discount":0.1409556314,"Profit_Ratio":0.1270848523,"Unique_Customers":126},{"Month":"2015-10","Total_Sales":31404.9235,"Avg_Discount":0.1623493976,"Profit_Ratio":0.0897109652,"Unique_Customers":79},{"Month":"2015-11","Total_Sales":75972.5635,"Avg_Discount":0.1623148148,"Profit_Ratio":0.1642012304,"Unique_Customers":146},{"Month":"2015-12","Total_Sales":74919.5212,"Avg_Discount":0.1372468354,"Profit_Ratio":0.1070077034,"Unique_Customers":141},{"Month":"2016-01","Total_Sales":18542.491,"Avg_Discount":0.1325842697,"Profit_Ratio":0.1523432477,"Unique_Customers":46},{"Month":"2016-02","Total_Sales":22978.815,"Avg_Discount":0.0963855422,"Profit_Ratio":0.2177910175,"Unique_Customers":42},{"Month":"2016-03","Total_Sales":51715.875,"Avg_Discount":0.1909202454,"Profit_Ratio":0.0698425387,"Unique_Customers":80},{"Month":"2016-04","Total_Sales":38750.039,"Avg_Discount":0.1558823529,"Profit_Ratio":0.0768467588,"Unique_Customers":83},{"Month":"2016-05","Total_Sales":56987.728,"Avg_Discount":0.1844444444,"Profit_Ratio":0.1520002061,"Unique_Customers":96},{"Month":"2016-06","Total_Sales":40344.534,"Avg_Discount":0.1386934673,"Profit_Ratio":0.1177452713,"Unique_Customers":90},{"Month":"2016-07","Total_Sales":39261.963,"Avg_Discount":0.1594527363,"Profit_Ratio":0.112905152,"Unique_Customers":89},{"Month":"2016-08","Total_Sales":31115.3743,"Avg_Discount":0.185625,"Profit_Ratio":0.0662717176,"Unique_Customers":86},{"Month":"2016-09","Total_Sales":73410.0249,"Avg_Discount":0.1494214876,"Profit_Ratio":0.1270760719,"Unique_Customers":176},{"Month":"2016-10","Total_Sales":59687.745,"Avg_Discount":0.1471938776,"Profit_Ratio":0.2721353018,"Unique_Customers":95},{"Month":"2016-11","Total_Sales":79411.9658,"Avg_Discount":0.1576216216,"Profit_Ratio":0.0505138925,"Unique_Customers":165},{"Month":"2016-12","Total_Sales":96999.043,"Avg_Discount":0.1354261364,"Profit_Ratio":0.1843864511,"Unique_Customers":157},{"Month":"2017-01","Total_Sales":43971.374,"Avg_Discount":0.1612903226,"Profit_Ratio":0.1623883552,"Unique_Customers":67},{"Month":"2017-02","Total_Sales":20301.1334,"Avg_Discount":0.1819626168,"Profit_Ratio":0.0794966452,"Unique_Customers":53},{"Month":"2017-03","Total_Sales":58872.3528,"Avg_Discount":0.1308403361,"Profit_Ratio":0.2505741795,"Unique_Customers":115},{"Month":"2017-04","Total_Sales":36521.5361,"Avg_Discount":0.1944334975,"Profit_Ratio":0.0255545111,"Unique_Customers":109},{"Month":"2017-05","Total_Sales":44261.1102,"Avg_Discount":0.1524380165,"Profit_Ratio":0.1432992252,"Unique_Customers":113},{"Month":"2017-06","Total_Sales":52981.7257,"Avg_Discount":0.1719183673,"Profit_Ratio":0.1552107937,"Unique_Customers":118},{"Month":"2017-07","Total_Sales":45264.416,"Avg_Discount":0.1400442478,"Profit_Ratio":0.1536001525,"Unique_Customers":102},{"Month":"2017-08","Total_Sales":63120.888,"Avg_Discount":0.1435779817,"Profit_Ratio":0.1432323908,"Unique_Customers":104},{"Month":"2017-09","Total_Sales":87866.652,"Avg_Discount":0.1473856209,"Profit_Ratio":0.1250935975,"Unique_Customers":196},{"Month":"2017-10","Total_Sales":77776.9232,"Avg_Discount":0.1742281879,"Profit_Ratio":0.1192548524,"Unique_Customers":136},{"Month":"2017-11","Total_Sales":118447.8250000001,"Avg_Discount":0.1609803922,"Profit_Ratio":0.0818090471,"Unique_Customers":216},{"Month":"2017-12","Total_Sales":83829.3188,"Avg_Discount":0.1465800866,"Profit_Ratio":0.1011978496,"Unique_Customers":195}]
+[
+  {
+    "title": "Total Sales",
+    "value": 83829.3188,
+    "percentage": -29.23,
+    "isPositive": 0,
+    "description": "Profit Ratio is calculated as total profit divided by total sales."
+  },
+
+  {
+    "title": "Avg Discount",
+    "value": 0.1465800866,
+    "percentage": -8.95,
+    "isPositive": 0,
+    "description": "Avg Discount reflects the average discount applied to sales."
+  },
+
+  {
+    "title": "Profit Ratio",
+    "value": 0.1011978496,
+    "percentage": 23.7,
+    "isPositive": 1,
+    "description": "Profit Ratio is calculated as total profit divided by total sales for a given period. It reflects how efficiently revenue is converted into profit."
+  },
+
+  {
+    "title": "Unique Customers",
+    "value": 195.0,
+    "percentage": 0.0,
+    "isPositive": 0,
+    "description": "Unique Customers represents the number of distinct customers who made purchases during the selected time period. It indicates customer reach and engagement."
+  }
+]

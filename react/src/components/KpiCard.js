@@ -1,24 +1,44 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import './KpiCardStyles.css';
+import MiniKpiChart from './MiniKpiChart';
 
 // Functional component that displays a single KPI card
-const KpiCard = ({ title, value, percentage, isPositive }) => {
+const KpiCard = ({ title, value, percentage, isPositive, description, view, onClick }) => {
   const safeValue = typeof value === 'number' ? `$${value.toLocaleString()}` : 'N/A';
   const safePercentage = typeof percentage === 'number' ? `${Math.abs(percentage)}%` : '–';
 
   return (
-    <div className="kpi-card">
-      {/* KPI title: e.g., "Sales", "Profit Ratio" */}
-      <div className="kpi-title">{title || 'Untitled KPI'}</div>
+    <div className={`kpi-card ${view}`} onClick={onClick} style={{ cursor: 'pointer' }}>
+      {view === 'front' && (
+        <>
+          <div className="kpi-title">{title}</div>
+          <div className="kpi-value">{safeValue}</div>
+          <div className={`kpi-change ${isPositive ? 'positive' : 'negative'}`}>
+            {isPositive ? '▲' : '▼'} {safePercentage}
+          </div>
+        </>
+      )}
 
-      {/* Main value: formatted with commas */}
-      <div className="kpi-value">{safeValue}</div>
+      {view === 'back' && (
+        <div className="kpi-back-text">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+      )}
 
-      {/* Change indicator: shows arrow and % change */}
-      <div className={`kpi-change ${isPositive ? 'positive' : 'negative'}`}>
-        {/* Arrow symbol and % */}
-        {isPositive ? '▲' : '▼'} {safePercentage}
-      </div>
+      {view === 'chart' && (
+        <div style={{ height: '100%', padding: '0.5rem' }}>
+          <div className="mini-chart-title">{title}</div>
+          <MiniKpiChart title={title} chartType="line" />
+        </div>
+      )}
+
+      {view === 'bar' && (
+        <div style={{ height: '100%', padding: '0.5rem' }}>
+          <MiniKpiChart title={title} chartType="bar" />
+        </div>
+      )}
     </div>
   );
 };
@@ -28,7 +48,8 @@ KpiCard.defaultProps = {
   title: 'KPI',
   value: 0,
   percentage: 0,
-  isPositive: true
+  isPositive: true,
+  showInfoBack: false
 };
 
 export default KpiCard;

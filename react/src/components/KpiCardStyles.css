@@ -1,3 +1,16 @@
+/* Dashboard container layout */
+.dashboard-container {
+  padding: 2rem;
+  text-align: left;
+}
+
+/* Dashboard title */
+.dashboard-title {
+  font-size: 2rem;
+  /* font-weight: 700; */
+  color: #333;
+  margin-bottom: 2rem;
+}
 /* Main dashboard layout grid */
 .dashboard-grid {
   display: grid;
@@ -51,4 +64,27 @@
 /* Red for downtrend */
 .kpi-change.negative {
   color: #dc3545;
+}
+
+/* KPI back text */
+.kpi-back-text {
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 1rem, 1rem;
+}
+
+/* Mini chart container */
+.mini-chart-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* active button */
+button.active {
+  background-color: #007bff;
+  color: white;
 }
